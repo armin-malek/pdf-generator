@@ -29,6 +29,7 @@ let browserPromise = puppeteer.launch({
 app.use(express.json());
 app.post("/download-pdf", async (req, res) => {
   try {
+    const time = Date.now();
     const browser = await browserPromise;
     const page = await browser.newPage();
     // await page.goto(`file://${filePath}`, { waitUntil: "load" });
@@ -45,6 +46,7 @@ app.post("/download-pdf", async (req, res) => {
     // res.setHeader("Content-Disposition", 'attachment; filename="download.pdf"');
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Length", pdfBuffer.length);
+    res.setHeader("CPU-TIME", Date.now() - time);
     res.status(200).sendFile(pdfPath, (err) => {
       if (err) {
         console.log(err);
