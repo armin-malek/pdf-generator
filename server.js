@@ -5,6 +5,7 @@ const path = require("path");
 const fs = require("fs");
 const ejs = require("ejs");
 const { v4: uuidV4 } = require("uuid");
+const { requestBodySchema } = require("./schema");
 
 const NODE_ENV = process.env.NODE_ENV;
 
@@ -17,20 +18,50 @@ if (!fs.existsSync("./tmp")) {
 
 const template = fs.readFileSync("./template.ejs").toString();
 
-let browserPromise = puppeteer.launch({
-  headless: NODE_ENV == "PRODUCTION" ? true : false,
-  executablePath:
-    NODE_ENV == "PRODUCTION"
-      ? undefined
-      : "C:\\Users\\Armin\\AppData\\Local\\Chromium\\Application\\chrome.exe",
-  defaultViewport: { width: 1920, height: 1080 },
-}); // Launch browser once and keep it running
+let browserPromise;
 
+// تابعی برای راه‌اندازی مرورگر و مدیریت کرش‌های احتمالی
+async function launchBrowser() {
+  console.log("Launching browser...");
+  browserPromise = puppeteer.launch({
+    headless: NODE_ENV == "PRODUCTION" ? true : false,
+    executablePath:
+      NODE_ENV == "PRODUCTION"
+        ? undefined
+        : "C:\\Users\\Armin\\AppData\\Local\\Chromium\\Application\\chrome.exe",
+    defaultViewport: { width: 1920, height: 1080 },
+    args: ["--no-sandbox"],
+  });
+
+  const browser = await browserPromise;
+
+  // اگر مرورگر به هر دلیلی کرش کرد، مجدداً راه‌اندازی شود
+  browser.on("disconnected", () => {
+    console.error("Browser crashed! Restarting...");
+    launchBrowser();
+  });
+
+  return browser;
+}
+
+// راه‌اندازی اولیه مرورگر
+launchBrowser();
 app.use(express.json());
 app.post("/download-pdf", async (req, res) => {
   try {
     const time = Date.now();
+
+    const validationResult = requestBodySchema.safeParse(req.body);
+
+    if (!validationResult.success) {
+      return res.status(400).json({
+        error: "اطلاعات نامعتبر است",
+        details: validationResult.error.errors,
+      });
+    }
+
     const browser = await browserPromise;
+
     const page = await browser.newPage();
     // await page.goto(`file://${filePath}`, { waitUntil: "load" });
     await page.setContent(ejs.render(template, req.body));
