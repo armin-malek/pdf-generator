@@ -83,6 +83,8 @@ app.post("/download-pdf", async (req, res) => {
       printBackground: true,
       path: pdfPath,
     });
+
+    //ENABLE IT IT PRODUCTION
     // await page.close();
 
     // res.setHeader("Content-Disposition", 'attachment; filename="download.pdf"');
