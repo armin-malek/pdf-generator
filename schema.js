@@ -9,9 +9,9 @@ const setSchema = z.object({
 const movementSchema = z.object({
   action_title: z.string().min(1, "عنوان حرکت الزامی است"),
   action_id: z.number().int("شناسه حرکت باید عدد صحیح باشد"),
-  action_description: z.string().optional(),
-  action_video_ur: z.string().url("آدرس ویدیو نامعتبر است"),
-  action_pic_url: z.string().url("آدرس تصویر نامعتبر است"),
+  action_description: z.string().nullish(),
+  action_video_ur: z.string("آدرس ویدیو نامعتبر است").nullish(),
+  action_pic_url: z.string("آدرس تصویر نامعتبر است").nullish(),
   description: z.string().optional(),
   sets: z.array(setSchema).min(1, "حداقل یک ست باید وجود داشته باشد"),
 });

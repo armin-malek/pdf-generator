@@ -1,59 +1,83 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>برنامه تمرینی</title>
-    <style>
-        body { font-family: Arial, sans-serif; direction: rtl; text-align: right; }
-        .container { width: 80%; margin: auto; }
-        .day { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
-        .exercise { margin: 10px 0; padding: 10px; border: 1px solid #ddd; }
-        img { max-width: 100px; display: block; margin: 5px 0; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>برنامه تمرینی: فیت (افزایشی--3 منزل--ورژن جدید)</h1>
-        <p><strong>نوع:</strong> عمومی</p>
-        <p><strong>جنسیت:</strong> آقا</p>
-        <p><strong>محل تمرین:</strong> باشگاه</p>
-        <p><strong>سطح:</strong> فوق مبتدی</p>
-        <p><strong>تعداد روزها:</strong> 3</p>
-        
-        <h2>روزهای تمرین:</h2>
-        <div id="days">
-            <!-- روزها و تمرینات در اینجا نمایش داده می‌شوند -->
-        </div>
-    </div>
 
-    <script>
-        const programData = {
-            "days": [
-                {
-                    "exercise_system": "معمولی",
-                    "movement_list": [
-                        {
-                            "action_title": "گرم کردن",
-                            "action_description": "گرم کردن",
-                            "action_video_ur": "/files/exercise/videos/1727531276595.mp4",
-                            "action_pic_url": "/files/exercise/images/1727524104398.png",
-                            "sets": [{ "type": "ماکسیمم توان", "count": "" }]
-                        }
-                    ]
-                }
-            ]
-        };
-        
-        const daysContainer = document.getElementById("days");
-        programData.days.forEach((day, index) => {
-            let dayDiv = document.createElement("div");
-            dayDiv.className = "day";
-            dayDiv.innerHTML = `<h3>روز ${index + 1}</h3>`;
-            day.movement_list.forEach(movement => {
-                let exerciseDiv = document.createElement("div");
-                exerciseDiv.className = "exercise";
-                exerciseDiv.innerHTML = `
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>برنامه تمرینی</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .container {
+      width: 80%;
+      margin: auto;
+    }
+
+    .day {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .exercise {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    img {
+      max-width: 50px;
+      display: block;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>برنامه تمرینی: فیت (افزایشی--3 منزل--ورژن جدید)</h1>
+    <p><strong>نوع:</strong> عمومی</p>
+    <p><strong>جنسیت:</strong> آقا</p>
+    <p><strong>محل تمرین:</strong> باشگاه</p>
+    <p><strong>سطح:</strong> فوق مبتدی</p>
+    <p><strong>تعداد روزها:</strong> 3</p>
+
+    <h2>روزهای تمرین:</h2>
+    <div id="days">
+      <!-- روزها و تمرینات در اینجا نمایش داده می‌شوند -->
+    </div>
+  </div>
+
+  <script>
+    const programData = {
+      "days": [{
+        "exercise_system": "معمولی",
+        "movement_list": [{
+          "action_title": "گرم کردن",
+          "action_description": "گرم کردن",
+          "action_video_ur": "/files/exercise/videos/1727531276595.mp4",
+          "action_pic_url": "/files/exercise/images/1727524104398.png",
+          "sets": [{
+            "type": "ماکسیمم توان",
+            "count": ""
+          }]
+        }]
+      }]
+    };
+
+    const daysContainer = document.getElementById("days");
+    programData.days.forEach((day, index) => {
+      let dayDiv = document.createElement("div");
+      dayDiv.className = "day";
+      dayDiv.innerHTML = `<h3>روز ${index + 1}</h3>`;
+      day.movement_list.forEach(movement => {
+        let exerciseDiv = document.createElement("div");
+        exerciseDiv.className = "exercise";
+        exerciseDiv.innerHTML = `
                     <h4>${movement.action_title}</h4>
                     <p>${movement.action_description}</p>
                     <img src="${movement.action_pic_url}" alt="${movement.action_title}">
@@ -61,10 +85,11 @@
                         <source src="${movement.action_video_ur}" type="video/mp4">
                     </video>
                 `;
-                dayDiv.appendChild(exerciseDiv);
-            });
-            daysContainer.appendChild(dayDiv);
-        });
-    </script>
+        dayDiv.appendChild(exerciseDiv);
+      });
+      daysContainer.appendChild(dayDiv);
+    });
+  </script>
 </body>
+
 </html>

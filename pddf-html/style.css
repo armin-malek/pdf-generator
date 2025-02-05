@@ -1,0 +1,96 @@
+@font-face {
+  font-family: IranYekan;
+  src: url(IRANYekanWebRegular.woff) format("woff");
+}
+* {
+  font-family: "IranYekan";
+}
+body {
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+}
+table.exercise-list {
+  margin: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+}
+table.exercise-list img {
+  width: 40px;
+}
+
+table.exercise-list tr:not(:last-child) td {
+  border-bottom: 1px solid #ccc;
+}
+
+table.exercise-list th {
+  border: 2px solid;
+}
+.sets {
+  font-size: 12px;
+  width: 35px !important;
+}
+
+th.sets {
+  max-width: 61px;
+}
+
+tr.exercise-system {
+  background: #669933;
+  color: #fff;
+  font-size: 12px;
+}
+
+.container {
+  max-width: 95%;
+  margin: auto;
+}
+td.sets {
+  border-right: 1px solid #ccc;
+  padding: 1px;
+}
+
+tr.end-exercise-system td {
+  border-bottom: 5px solid #669933 !important;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #669933;
+  color: #fff;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.header img {
+  width: 150px;
+  height: auto;
+}
+
+.texts-head p.coach-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.texts-head h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* .movement-title {
+  margin: 0 !important;
+}
+.movement-description {
+  margin: 0 !important;
+} */
+
+tr.seperator {
+  background: #669933;
+}

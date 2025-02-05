@@ -6,6 +6,7 @@ const fs = require("fs");
 const ejs = require("ejs");
 const { v4: uuidV4 } = require("uuid");
 const { requestBodySchema } = require("./schema");
+const { numberToOrdinal } = require("./lib");
 
 const NODE_ENV = process.env.NODE_ENV;
 
@@ -16,7 +17,7 @@ if (!fs.existsSync("./tmp")) {
   fs.mkdirSync("./tmp");
 }
 
-const template = fs.readFileSync("./template.ejs").toString();
+const template = fs.readFileSync("./index.ejs").toString();
 
 let browserPromise;
 
@@ -34,6 +35,8 @@ async function launchBrowser() {
   });
 
   const browser = await browserPromise;
+  const page = await browser.newPage();
+  page.pdf({ format: "A4" });
 
   // اگر مرورگر به هر دلیلی کرش کرد، مجدداً راه‌اندازی شود
   browser.on("disconnected", () => {
@@ -63,16 +66,24 @@ app.post("/download-pdf", async (req, res) => {
     const browser = await browserPromise;
 
     const page = await browser.newPage();
-    // await page.goto(`file://${filePath}`, { waitUntil: "load" });
-    await page.setContent(ejs.render(template, req.body));
+    const filePath = path.join(__dirname, "out.html");
+    fs.writeFileSync(
+      filePath,
+      ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
+    );
+    await page.goto(`file://${filePath}`, { waitUntil: "networkidle2" });
+    // await page.setContent(
+    //   ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
+    // );
 
+    await page.emulateMediaType("print");
     const pdfPath = path.join(__dirname, "/tmp/", `${uuidV4()}.pdf`);
     const pdfBuffer = await page.pdf({
       format: "A4",
       printBackground: true,
       path: pdfPath,
     });
-    await page.close();
+    // await page.close();
 
     // res.setHeader("Content-Disposition", 'attachment; filename="download.pdf"');
     res.setHeader("Content-Type", "application/pdf");

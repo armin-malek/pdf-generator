@@ -1,71 +1,80 @@
 <!DOCTYPE html>
 <html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= data.program.title %></title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            direction: rtl;
-            text-align: right;
-            margin: 20px;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        .day {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background: #f9f9f9;
-        }
-        .exercise {
-            margin-bottom: 10px;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        img {
-            width: 100px;
-            height: auto;
-            display: block;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1><%= data.program.title %></h1>
-        <p><strong>محل تمرین:</strong> <%= data.program.location %></p>
-        <p><strong>سطح:</strong> <%= data.program.level %></p>
-        <p><strong>هدف:</strong> <%= data.program.target %></p>
 
-        <% data.program.days.forEach(function(day, index) { %>
-            <div class="day">
-                <h2>روز <%= index + 1 %></h2>
-                <% day.data.forEach(function(exerciseGroup) { %>
-                    <h3><%= exerciseGroup.exercise_system %></h3>
-                    <% exerciseGroup.movement_list.forEach(function(exercise) { %>
-                        <div class="exercise">
-                            <p><strong>حرکت:</strong> <%= exercise.action_title %></p>
-                            <p><strong>توضیحات:</strong> <%= exercise.description || 'ندارد' %></p>
-                            <img src="https://fitclub.ir<%= exercise.action_pic_url %>" alt="<%= exercise.action_title %>">
-                            <p><strong>ست‌ها:</strong></p>
-                            <ul>
-                                <% exercise.sets.forEach(function(set) { %>
-                                    <li><%= set.type %>: <%= set.count || 'نامحدود' %></li>
-                                <% }) %>
-                            </ul>
-                        </div>
-                    <% }) %>
-                <% }) %>
-            </div>
-        <% }) %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.program.title %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      text-align: right;
+      margin: 20px;
+    }
+
+    .container {
+      width: 80%;
+      margin: auto;
+    }
+
+    h1,
+    h2 {
+      color: #333;
+    }
+
+    .day {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #f9f9f9;
+    }
+
+    .exercise {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    img {
+      width: 50px;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1><%= data.program.title %></h1>
+    <p><strong>محل تمرین:</strong> <%= data.program.location %></p>
+    <p><strong>سطح:</strong> <%= data.program.level %></p>
+    <p><strong>هدف:</strong> <%= data.program.target %></p>
+
+    <% data.program.days.forEach(function(day, index) { %>
+    <div class="day">
+      <h2>روز <%= index + 1 %></h2>
+      <% day.data.forEach(function(exerciseGroup) { %>
+      <h3><%= exerciseGroup.exercise_system %></h3>
+      <% exerciseGroup.movement_list.forEach(function(exercise) { %>
+      <div class="exercise">
+        <p><strong>حرکت:</strong> <%= exercise.action_title %></p>
+        <p><strong>توضیحات:</strong> <%= exercise.description || 'ندارد' %></p>
+        <img src="https://fitclub.ir<%= exercise.action_pic_url %>" alt="<%= exercise.action_title %>">
+        <p><strong>ست‌ها:</strong></p>
+        <ul>
+          <% exercise.sets.forEach(function(set) { %>
+          <li><%= set.type %>: <%= set.count || 'نامحدود' %></li>
+          <% }) %>
+        </ul>
+      </div>
+      <% }) %>
+      <% }) %>
     </div>
+    <% }) %>
+  </div>
 </body>
+
 </html>

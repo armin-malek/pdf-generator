@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.program.title %></title>
+  <link rel="stylesheet" href="./pddf-html/style.css">
+</head>
+
+<body>
+  <div class="header">
+    <div class="texts-head">
+      <p class="coach-name">دکتر پویا شوکتی</p>
+      <h1>برنامه تمرینی ماه اول</h1>
+    </div>
+    <img src="./pddf-html/sample-logo.png" alt="" class="logo">
+
+  </div>
+
+  <% data.program.days.forEach(function(day, index) { %>
+  <div class="container" style="<%- index > 0 ? `page-break-before: always` : "" %>">
+    <div class="day-title">برنامه روز <%= numberToOrdinal( index+1) %></div>
+    <p class="day-description">توضیحات: <%= day.description || '-----' %><br>
+
+    <table class="exercise-list">
+      <tr>
+        <th>#</th>
+        <th></th>
+        <th></th>
+        <th class="sets">ست 1</th>
+        <th class="sets">ست 2</th>
+        <th class="sets">ست 3</th>
+        <th class="sets">ست 4</th>
+        <th class="sets">ست 5</th>
+      </tr>
+      <% day.data.forEach(function(data,dindex) { %>
+
+      <tr class="seperator">
+        <td colspan="8"></td>
+      </tr>
+      <% if(data.exercise_system != "معمولی"){ %>
+      <tr class="exercise-system">
+        <td colspan="8">
+          <%= data.exercise_system  %>
+        </td>
+      </tr>
+      <% } %>
+      <% data.movement_list.forEach(function(movement,mindex){ %>
+      <tr>
+
+        <td>
+          <% if(mindex == 0) { %>
+          <%= dindex+1 %>
+          <% } %>
+        </td>
+        <td>
+          <!-- <img src="./pddf-html/exerise.png" alt=""> -->
+          <img src="http://storage.morabiha.com<%= movement.action_pic_url %>" alt="">
+
+        </td>
+        <td>
+          <p class="movement-title" style="text-align: right;margin: 0;"><%= movement.action_title %></p>
+          <% if(movement.description){ %>
+          <p class="movement-description" style="font-size: 11px;text-align: right;color: #737272;margin: 0;line-height: 1.2;">توضیحات: <%- movement.description %></p>
+          <% } %>
+        </td>
+        <% movement.sets.forEach(function(set,sindex) { %>
+        <td class="sets"><%= set.count %> <%= set.type %></td>
+        <% }) %>
+
+        <% Array(Math.max(5-movement.sets.length,0)).fill(0).forEach(function(x){ %>
+        <td class="sets"></td>
+        <% }) %>
+
+
+      </tr>
+
+      <% }) %>
+
+      <% }) %>
+      <!-- <tr class="exercise-system">
+                <td colspan="7">ستستم تمرینی سوپر ست</td>
+            </tr> -->
+      <!-- <tr>
+                <td><img src="./pddf-html/exerise.png" alt=""></td>
+                <td>
+                    <p>پرس سینه دمبل جفت دست</p>
+                    <p>توضیحات: ست آخر دراپ ست باشد</p>
+                </td>
+                <td class="sets">15 تکرار</td>
+                <td class="sets">15 تکرار</td>
+                <td class="sets">15 تکرار</td>
+                <td class="sets"></td>
+                <td class="sets"></td>
+            </tr>
+            <tr class="end-exercise-system">
+                <td><img src="./pddf-html/exerise.png" alt=""></td>
+                <td>
+                    <p>پرس سینه دمبل جفت دست</p>
+                    <p>توضیحات: ست آخر دراپ ست باشد</p>
+                </td>
+                <td class="sets">15 تکرار</td>
+                <td class="sets">15 تکرار</td>
+                <td class="sets">15 تکرار</td>
+                <td class="sets"></td>
+                <td class="sets"></td>
+            </tr>
+            <tr>
+                <td><img src="./pddf-html/exerise.png" alt=""></td>
+                <td>
+                    <p>پرس سینه دمبل جفت دست</p>
+                    <p>توضیحات: ست آخر دراپ ست باشد</p>
+                </td>
+                <td class="sets">15 تکرار</td>
+                <td class="sets">15 تکرار</td>
+                <td class="sets">15 تکرار</td>
+                <td class="sets"></td>
+                <td class="sets"></td>
+            </tr> -->
+    </table>
+    <br />
+    <br />
+    <hr />
+    <br />
+    <br />
+  </div>
+  <% }) %>
+
+</body>
+
+</html>
