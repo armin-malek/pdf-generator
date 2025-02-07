@@ -36,47 +36,76 @@
       </tr>
       <% day.data.forEach(function(data,dindex) { %>
 
-      <tr class="seperator">
-        <td colspan="8"></td>
-      </tr>
+
       <% if(data.exercise_system != "معمولی"){ %>
       <tr class="exercise-system">
         <td colspan="8">
           <%= data.exercise_system  %>
         </td>
       </tr>
-      <% } %>
-      <% data.movement_list.forEach(function(movement,mindex){ %>
-      <tr>
+      <% }else { %>
 
+      <tr class="seperator">
+        <td colspan="8"></td>
+      </tr>
+      <% } %>
+      <% data.movement_list.forEach(function(movement, mindex){ %>
+      <tr class="addplus">
         <td>
           <% if(mindex == 0) { %>
           <%= dindex+1 %>
           <% } %>
         </td>
         <td>
-          <!-- <img src="./pddf-html/exerise.png" alt=""> -->
           <img src="http://storage.morabiha.com<%= movement.action_pic_url %>" alt="">
-
         </td>
         <td>
           <p class="movement-title" style="text-align: right;margin: 0;"><%= movement.action_title %></p>
           <% if(movement.description){ %>
-          <p class="movement-description" style="font-size: 11px;text-align: right;color: #737272;margin: 0;line-height: 1.2;">توضیحات: <%- movement.description %></p>
+          <p class="movement-description" style="font-size: 11px;text-align: right;color: #737272;margin: 0;line-height: 1.2;">
+            توضیحات: <%- movement.description %>
+          </p>
           <% } %>
         </td>
-        <% movement.sets.forEach(function(set,sindex) { %>
+        <% movement.sets.forEach(function(set, sindex) { %>
         <td class="sets"><%= set.count %> <%= set.type %></td>
         <% }) %>
-
         <% Array(Math.max(5-movement.sets.length,0)).fill(0).forEach(function(x){ %>
         <td class="sets"></td>
         <% }) %>
-
-
       </tr>
 
+      <% if(mindex < data.movement_list.length - 1) { %>
+      <tr class="plus-row">
+        <td colspan="100%" style=" border: none;">
+          <div class="plus-sign">+</div>
+        </td>
+      </tr>
+      <% } %>
+
       <% }) %>
+
+      <style>
+        .plus-row {
+          position: relative;
+          /* height: 0px; */
+          /* Adjust the spacing */
+        }
+
+
+
+        .plus-sign {
+          position: absolute;
+          top: -14px;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 24px;
+          font-weight: bold;
+          padding: 0px;
+          color: #669933;
+        }
+      </style>
+
 
       <% }) %>
       <!-- <tr class="exercise-system">
@@ -119,11 +148,11 @@
                 <td class="sets"></td>
             </tr> -->
     </table>
-    <br />
+    <!-- <br />
     <br />
     <hr />
     <br />
-    <br />
+    <br /> -->
   </div>
   <% }) %>
 

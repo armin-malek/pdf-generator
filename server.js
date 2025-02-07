@@ -17,8 +17,6 @@ if (!fs.existsSync("./tmp")) {
   fs.mkdirSync("./tmp");
 }
 
-const template = fs.readFileSync("./index.ejs").toString();
-
 let browserPromise;
 
 // تابعی برای راه‌اندازی مرورگر و مدیریت کرش‌های احتمالی
@@ -67,6 +65,7 @@ app.post("/download-pdf", async (req, res) => {
 
     const page = await browser.newPage();
     const filePath = path.join(__dirname, "out.html");
+    const template = fs.readFileSync("./index.ejs").toString();
     fs.writeFileSync(
       filePath,
       ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
