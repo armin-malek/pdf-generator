@@ -18,6 +18,7 @@ if (!fs.existsSync("./tmp")) {
 }
 
 let browserPromise;
+// const template = fs.readFileSync("./index.ejs").toString();
 
 // تابعی برای راه‌اندازی مرورگر و مدیریت کرش‌های احتمالی
 async function launchBrowser() {
@@ -65,7 +66,9 @@ app.post("/download-pdf", async (req, res) => {
 
     const page = await browser.newPage();
     const filePath = path.join(__dirname, "out.html");
-    const template = fs.readFileSync("./index.ejs").toString();
+
+    const template = (await fs.promises.readFile("./index.ejs")).toString();
+
     fs.writeFileSync(
       filePath,
       ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
