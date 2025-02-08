@@ -29,10 +29,10 @@ async function launchBrowser() {
   console.log("Launching browser...");
   browserPromise = puppeteer.launch({
     headless: NODE_ENV == "PRODUCTION" ? true : false,
-    executablePath:
-      NODE_ENV == "PRODUCTION"
-        ? undefined
-        : "C:\\Users\\Armin\\AppData\\Local\\Chromium\\Application\\chrome.exe",
+    // executablePath:
+    //   NODE_ENV == "PRODUCTION"
+    //     ? undefined
+    //     : "C:\\Users\\Armin\\AppData\\Local\\Chromium\\Application\\chrome.exe",
     defaultViewport: { width: 1920, height: 1080 },
     args: ["--no-sandbox"],
   });

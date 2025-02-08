@@ -18,7 +18,9 @@ RUN groupadd -r pptruser && useradd -u $PPTRUSER_UID -rm -g pptruser -G audio,vi
 
 USER $PPTRUSER_UID
 
-WORKDIR /home/pptruser
+# Setting up the work directory
+WORKDIR /pdf-gen
+# WORKDIR /home/pptruser
 
 # COPY puppeteer-browsers-latest.tgz puppeteer-latest.tgz puppeteer-core-latest.tgz ./
 
@@ -44,14 +46,15 @@ ENV NODE_ENV=development
 
 
 
-# Setting up the work directory
-WORKDIR /pdf-gen
+
 
 # Copying all the files in our project
 COPY . .
 
 # Installing dependencies
 RUN npm install
+
+RUN npx @puppeteer/browsers install chrome@stable
 
 # Starting our application
 CMD [ "node", "server.js" ]
