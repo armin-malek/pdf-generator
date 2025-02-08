@@ -40,7 +40,7 @@ USER $PPTRUSER_UID
 
 
 # PDFGEN
-ENV NODE_ENV development
+ENV NODE_ENV=development
 
 
 
