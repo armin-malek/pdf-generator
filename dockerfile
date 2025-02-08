@@ -35,8 +35,7 @@ ENV DBUS_SESSION_BUS_ADDRESS autolaunch:
 USER root
 # Overriding the cache directory to install the deps for the Chrome
 # version installed for pptruser. 
-RUN PUPPETEER_CACHE_DIR=/home/pptruser/.cache/puppeteer \
-  npx puppeteer browsers install chrome --install-deps
+
 
 # USER $PPTRUSER_UID
 
@@ -53,6 +52,9 @@ COPY . .
 
 # Installing dependencies
 RUN npm install
+
+RUN PUPPETEER_CACHE_DIR=/home/pptruser/.cache/puppeteer \
+  npx puppeteer browsers install chrome --install-deps
 
 # RUN npx @puppeteer/browsers install chrome@stable
 
