@@ -20,13 +20,14 @@ USER $PPTRUSER_UID
 
 WORKDIR /home/pptruser
 
-COPY puppeteer-browsers-latest.tgz puppeteer-latest.tgz puppeteer-core-latest.tgz ./
+# COPY puppeteer-browsers-latest.tgz puppeteer-latest.tgz puppeteer-core-latest.tgz ./
 
 ENV DBUS_SESSION_BUS_ADDRESS autolaunch:
 
+RUN npm i
 # Install @puppeteer/browsers, puppeteer and puppeteer-core into /home/pptruser/node_modules.
-RUN npm i ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppeteer-latest.tgz \
-    && rm ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppeteer-latest.tgz
+#RUN npm i ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppeteer-latest.tgz \
+#    && rm ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppeteer-latest.tgz
 
 # Install system dependencies as root.
 USER root
@@ -41,7 +42,7 @@ USER $PPTRUSER_UID
 # PDFGEN
 ENV NODE_ENV development
 
-RUN npm i
+
 
 # Setting up the work directory
 WORKDIR /pdf-gen
