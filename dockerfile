@@ -53,10 +53,10 @@ COPY . .
 # Installing dependencies
 RUN npm install
 
-RUN PUPPETEER_CACHE_DIR=/home/pptruser/.cache/puppeteer \
-  npx puppeteer browsers install chrome --install-deps
+# RUN PUPPETEER_CACHE_DIR=/home/pptruser/.cache/puppeteer \
+#   npx puppeteer browsers install chrome --install-deps
 
-# RUN npx @puppeteer/browsers install chrome@stable
+RUN npx @puppeteer/browsers install chrome@stable
 
 # Starting our application
 CMD [ "node", "server.js" ]
