@@ -36,7 +36,7 @@ USER root
 RUN PUPPETEER_CACHE_DIR=/home/pptruser/.cache/puppeteer \
   npx puppeteer browsers install chrome --install-deps
 
-USER $PPTRUSER_UID
+# USER $PPTRUSER_UID
 
 
 # PDFGEN
