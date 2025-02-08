@@ -54,7 +54,7 @@ COPY . .
 # Installing dependencies
 RUN npm install
 
-RUN npx @puppeteer/browsers install chrome@stable
+# RUN npx @puppeteer/browsers install chrome@stable
 
 # Starting our application
 CMD [ "node", "server.js" ]
