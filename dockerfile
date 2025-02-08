@@ -1,4 +1,4 @@
-FROM node:22@sha256:ae2f3d4cc65d251352eca01ba668824f651a2ee4d2a37e2efb22649521a483fd
+FROM node:22
 
 ENV \
     # Configure default locale (important for chrome-headless-shell).
@@ -24,7 +24,7 @@ WORKDIR /home/pptruser
 
 ENV DBUS_SESSION_BUS_ADDRESS autolaunch:
 
-RUN npm i
+
 # Install @puppeteer/browsers, puppeteer and puppeteer-core into /home/pptruser/node_modules.
 #RUN npm i ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppeteer-latest.tgz \
 #    && rm ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppeteer-latest.tgz
@@ -47,6 +47,7 @@ ENV NODE_ENV=development
 # Setting up the work directory
 WORKDIR /pdf-gen
 
+RUN npm i
 # Copying all the files in our project
 COPY . .
 
