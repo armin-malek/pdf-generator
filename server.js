@@ -18,7 +18,11 @@ if (!fs.existsSync("./tmp")) {
 }
 
 let browserPromise;
-// const template = fs.readFileSync("./index.ejs").toString();
+let template;
+
+if (process.env.NODE_ENV == "PRODUCTION") {
+  template = fs.readFileSync("./index.ejs").toString();
+}
 
 // تابعی برای راه‌اندازی مرورگر و مدیریت کرش‌های احتمالی
 async function launchBrowser() {
@@ -67,7 +71,9 @@ app.post("/download-pdf", async (req, res) => {
     const page = await browser.newPage();
     const filePath = path.join(__dirname, "out.html");
 
-    const template = (await fs.promises.readFile("./index.ejs")).toString();
+    if (process.env.NODE_ENV != "PRODUCTION") {
+      template = (await fs.promises.readFile("./index.ejs")).toString();
+    }
 
     fs.writeFileSync(
       filePath,
@@ -86,8 +92,9 @@ app.post("/download-pdf", async (req, res) => {
       path: pdfPath,
     });
 
-    //ENABLE IT IT PRODUCTION
-    // await page.close();
+    if ((process.env.NODE_ENV = "PRODUCTION")) {
+      await page.close();
+    }
 
     // res.setHeader("Content-Disposition", 'attachment; filename="download.pdf"');
     res.setHeader("Content-Type", "application/pdf");
