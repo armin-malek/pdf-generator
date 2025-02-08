@@ -47,7 +47,6 @@ ENV NODE_ENV=development
 # Setting up the work directory
 WORKDIR /pdf-gen
 
-RUN npm i
 # Copying all the files in our project
 COPY . .
 
