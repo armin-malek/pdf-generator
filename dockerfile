@@ -44,7 +44,7 @@ ENV NODE_ENV development
 RUN npm i
 
 # Setting up the work directory
-WORKDIR /express-docker
+WORKDIR /pdf-gen
 
 # Copying all the files in our project
 COPY . .
