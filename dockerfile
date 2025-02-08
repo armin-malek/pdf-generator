@@ -42,7 +42,7 @@ RUN PUPPETEER_CACHE_DIR=/home/pptruser/.cache/puppeteer \
 
 
 # PDFGEN
-ENV NODE_ENV=development
+ENV NODE_ENV=PRODUCTION
 
 
 
