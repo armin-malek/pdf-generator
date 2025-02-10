@@ -55,11 +55,11 @@ COPY . .
 # Installing dependencies
 RUN npm install
 
-RUN PUPPETEER_CACHE_DIR=/pdf-gen.cache/puppeteer \
+RUN PUPPETEER_CACHE_DIR=/pdf-gen/.cache/puppeteer \
   npx puppeteer browsers install chrome --install-deps
 
 # RUN npx @puppeteer/browsers install chrome@stable
-RUN cd /pdf-gen.cache/puppeteer && ls -lh
+
 # Starting our application
 CMD [ "node", "server.js" ]
 

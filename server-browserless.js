@@ -21,33 +21,47 @@ let browserPromise;
 let template;
 
 if (process.env.NODE_ENV == "PRODUCTION") {
-  template = fs.readFileSync("./index.ejs").toString();
+  template = fs.readFileSync("./index-inline.ejs").toString();
 }
 
 // تابعی برای راه‌اندازی مرورگر و مدیریت کرش‌های احتمالی
 async function launchBrowser() {
-  console.log("Launching browser...");
-  browserPromise = puppeteer.launch({
-    headless: NODE_ENV == "PRODUCTION" ? true : false,
-    // executablePath:
-    //   NODE_ENV == "PRODUCTION"
-    //     ? undefined
-    //     : "C:\\Users\\Armin\\AppData\\Local\\Chromium\\Application\\chrome.exe",
-    defaultViewport: { width: 1920, height: 1080 },
-    args: ["--no-sandbox"],
-  });
+  try {
+    console.log("Launching browser...");
+    const launchArgs = JSON.stringify({
+      // args: [`--window-size=1920,1080`, `--user-data-dir=/tmp/chrome/data-dir`],
+      args: [`--window-size=1920,1080`],
+      headless: true,
+      // stealth: true,
+      timeout: 30000,
+      keepalive: 300000,
+    });
 
-  const browser = await browserPromise;
-  // const page = await browser.newPage();
-  // page.pdf({ format: "A4" });
+    browserPromise = puppeteer.connect({
+      // headless: NODE_ENV == "PRODUCTION" ? true : false,
+      browserWSEndpoint: `ws://browserless-o0kcc8o480c0wkoowsk4csgc.193.105.234.156.sslip.io?token=u0cxaanZ8df524FMZ0nVQO2mg0irtGmB&launch=${launchArgs}`,
+      defaultViewport: { width: 1920, height: 1080 },
+      acceptInsecureCerts: true,
+      // browserURL:
+      //   "http://browserless-o0kcc8o480c0wkoowsk4csgc.193.105.234.156.sslip.io",
 
-  // اگر مرورگر به هر دلیلی کرش کرد، مجدداً راه‌اندازی شود
-  browser.on("disconnected", () => {
-    console.error("Browser crashed! Restarting...");
-    launchBrowser();
-  });
+      // args: ["--no-sandbox"],
+    });
 
-  return browser;
+    const browser = await browserPromise;
+    // const page = await browser.newPage();
+    // page.pdf({ format: "A4" });
+
+    // اگر مرورگر به هر دلیلی کرش کرد، مجدداً راه‌اندازی شود
+    browser.on("disconnected", () => {
+      console.error("Browser crashed! Restarting...");
+      launchBrowser();
+    });
+
+    return browser;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // راه‌اندازی اولیه مرورگر
@@ -79,10 +93,10 @@ app.post("/download-pdf", async (req, res) => {
       filePath,
       ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
     );
-    await page.goto(`file://${filePath}`, { waitUntil: "networkidle2" });
-    // await page.setContent(
-    //   ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
-    // );
+    // await page.goto(`file://${filePath}`, { waitUntil: "networkidle2" });
+    await page.setContent(
+      ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
+    );
 
     await page.emulateMediaType("print");
     const pdfPath = path.join(__dirname, "/tmp/", `${uuidV4()}.pdf`);
@@ -91,6 +105,16 @@ app.post("/download-pdf", async (req, res) => {
       printBackground: true,
       path: pdfPath,
     });
+
+    // Allow this browser to run for 1 minute, then shut down if nothing connects to it.
+    // Defaults to the overall timeout set on the instance, which is 5 minutes if not specified.
+    // const cdp = await page.createCDPSession();
+    // const { error, browserWSEndpoint } = await cdp.send(
+    //   "Browserless.reconnect",
+    //   {
+    //     timeout: 60000,
+    //   }
+    // );
 
     if ((process.env.NODE_ENV = "PRODUCTION")) {
       await page.close();
