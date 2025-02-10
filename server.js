@@ -22,7 +22,7 @@ let template;
 
 console.log("NODE_ENV", process.env.NODE_ENV);
 if (process.env.NODE_ENV == "PRODUCTION") {
-  template = fs.readFileSync("./index.ejs").toString();
+  template = fs.readFileSync("./templates/index.ejs").toString();
 }
 
 // تابعی برای راه‌اندازی مرورگر و مدیریت کرش‌های احتمالی
@@ -105,7 +105,7 @@ async function launchBrowser() {
 launchBrowser();
 app.use(express.json());
 app.use("/", require("./routes"));
-app.post("/generate-pdf", async (req, res) => {
+app.post("/exercise-pdf", async (req, res) => {
   try {
     const time = Date.now();
 
@@ -127,7 +127,9 @@ app.post("/generate-pdf", async (req, res) => {
     const filePath = path.join(__dirname, "out.html");
 
     if (process.env.NODE_ENV != "PRODUCTION") {
-      template = (await fs.promises.readFile("./index.ejs")).toString();
+      template = (
+        await fs.promises.readFile("./templates/index.ejs")
+      ).toString();
     }
 
     const renderTimeStart = Date.now();
@@ -157,7 +159,7 @@ app.post("/generate-pdf", async (req, res) => {
 
     res.setHeader("PdfPrint-TIME", Date.now() - PdfPrintTimeStart);
 
-    if ((process.env.NODE_ENV = "PRODUCTION")) {
+    if (process.env.NODE_ENV == "PRODUCTION") {
       await page.close();
     }
 
