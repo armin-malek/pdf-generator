@@ -105,7 +105,7 @@ async function launchBrowser() {
 // راه‌اندازی اولیه مرورگر
 launchBrowser();
 app.use(express.json());
-app.post("/download-pdf", async (req, res) => {
+app.post("/generate-pdf", async (req, res) => {
   try {
     const time = Date.now();
 
