@@ -95,6 +95,8 @@ app.post("/download-pdf", async (req, res) => {
   try {
     const time = Date.now();
 
+    const JSONValidationTimeStart = Date.now();
+
     const validationResult = requestBodySchema.safeParse(req.body);
 
     if (!validationResult.success) {
@@ -103,6 +105,7 @@ app.post("/download-pdf", async (req, res) => {
         details: validationResult.error.errors,
       });
     }
+    res.setHeader("JsonValidation-TIME", Date.now() - JSONValidationTimeStart);
 
     const browser = await browserPromise;
 
@@ -129,6 +132,7 @@ app.post("/download-pdf", async (req, res) => {
     // );
     res.setHeader("NAVIGATION-TIME", Date.now() - naigationTimeStart);
 
+    const PdfPrintTimeStart = Date.now();
     await page.emulateMediaType("print");
     const pdfPath = path.join(__dirname, "/tmp/", `${uuidV4()}.pdf`);
     const pdfBuffer = await page.pdf({
@@ -136,6 +140,8 @@ app.post("/download-pdf", async (req, res) => {
       printBackground: true,
       path: pdfPath,
     });
+
+    res.setHeader("PdfPrint-TIME", Date.now() - PdfPrintTimeStart);
 
     if ((process.env.NODE_ENV = "PRODUCTION")) {
       await page.close();
