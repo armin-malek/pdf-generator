@@ -26,7 +26,7 @@ WORKDIR /pdf-gen
 
 # COPY puppeteer-browsers-latest.tgz puppeteer-latest.tgz puppeteer-core-latest.tgz ./
 
-ENV DBUS_SESSION_BUS_ADDRESS autolaunch:
+ENV DBUS_SESSION_BUS_ADDRESS=autolaunch:
 
 
 # Install @puppeteer/browsers, puppeteer and puppeteer-core into /home/pptruser/node_modules.
