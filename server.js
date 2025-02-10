@@ -88,7 +88,6 @@ async function launchBrowser() {
   });
 
   const browser = await browserPromise;
-  browser.connected;
 
   // const page = await browser.newPage();
   // page.pdf({ format: "A4" });
@@ -181,14 +180,18 @@ app.post("/generate-pdf", async (req, res) => {
     // fs.writeFileSync("./out.pdf", pdfBuffer);
   } catch (error) {
     console.error("Error generating PDF:", error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Internal Server Error", error);
   }
 });
 
 app.get("/health-check", async (req, res) => {
-  const browser = await browserPromise;
+  try {
+    const browser = await browserPromise;
 
-  res.send({ ok: true, connected: browser.connected });
+    res.send({ ok: true, connected: browser.connected });
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
 app.listen(PORT, () => {
