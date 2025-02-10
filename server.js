@@ -77,7 +77,7 @@ app.post("/download-pdf", async (req, res) => {
     }
 
     const renderTimeStart = Date.now();
-    fs.writeFileSync(
+    await fs.promises.writeFile(
       filePath,
       ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
     );
@@ -85,7 +85,8 @@ app.post("/download-pdf", async (req, res) => {
 
     const naigationTimeStart = Date.now();
 
-    await page.goto(`file://${filePath}`, { waitUntil: "networkidle2" });
+    // await page.goto(`file://${filePath}`, { waitUntil: "networkidle2" });
+    await page.goto(`file://${filePath}`, { waitUntil: "load" });
     // await page.setContent(
     //   ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
     // );
