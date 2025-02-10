@@ -1,0 +1,1211 @@
+{
+  "couchName": "دکتر پویان",
+  "couchLogo": "./pddf-html/sample-logo.png",
+  "program": {
+    "title": "  فیت (افزایشی--3 منزل--ورژن جدید)--مرد--حرفه ای--جدید-عالیی 333&&",
+    "days": [
+      {
+        "data": [
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "گرم کردن",
+                "action_description": "گرم کردن",
+                "action_pic_url": "/files/exercise/images/1727524104398.png",
+                "sets": [
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "پرس بالا سینه دمبل جفت دست",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1726314003896.jpg",
+                "description": "روی زمین-روی پشتی اجرا شود",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "13"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "11"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "9"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "8"
+                  }
+                ]
+              },
+              {
+                "action_title": "پرس بالا سینه دمبل تک دست",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1726313995569.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی تری ست",
+            "movement_list": [
+              {
+                "action_title": "شنا با دمبل",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727526622079.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  }
+                ]
+              },
+              {
+                "action_title": "حرکت قفسه بالا سینه دمبل روی زمین",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727529560799.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  }
+                ]
+              },
+              {
+                "action_title": "هکس پرس روی زمین",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727524198322.png",
+                "description": "بزن تا ناتواتی کامل-روی زمین اجرا شود",
+                "sets": [
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  },
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  },
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "شنا باستانی",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727526614271.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              },
+              {
+                "action_title": "شنا دست باز روی زمین",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727526473492.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "15"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "15"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "15"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "جلو بازو چکشی جفت با کش",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727531744435.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "18"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "15"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "15"
+                  }
+                ]
+              },
+              {
+                "action_title": "حرکت جلو بازو دمبل جفت نشسته",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727530528247.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "حرکت جلو بازو دمبل چکشی جفت نشسته",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727530518927.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "جلو بازو دمبل تناوبی نشسته",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1726303580390.jpg",
+                "description": "با سیستم رست پاز بزن:یستم تمرینی رست پاز(rest pause): در این سیستم از وزنه ای استفاده میشه که بین تکرار های 12 تا 15 دست خسته بشه-<br />بین این شکل که در ست اول تا مرز ناتوانی تکرار میشه سپس فقط 15 ثانیه استراحت و دوباره تا مرز ناتوانی اجرا میشه در ست سوم 30 ثانیه استراحت و تکرار تا حدی اجرا میشود که دیگر حتی قادر نباشید یک تکرار انجام بدین-3 ست بزنید",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "300"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "زیر شکم نشسته روی صندلی",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727527935947.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "زیر شکم قورباغه ای",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727527952296.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "طناب",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727526288243.png",
+                "description": "10 دقیقه با شدت 70 درصد ضربان قلب",
+                "sets": [
+                  {
+                    "type": "دقیقه",
+                    "count": "10"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "حرکت کرانچ پا صاف",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727529495516.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "30"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "25"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "18"
+                  }
+                ]
+              },
+              {
+                "action_title": "پلانک",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727536102526.png",
+                "sets": [
+                  {
+                    "type": "ثانیه",
+                    "count": "60"
+                  },
+                  {
+                    "type": "ثانیه",
+                    "count": "60"
+                  },
+                  {
+                    "type": "ثانیه",
+                    "count": "60"
+                  },
+                  {
+                    "type": "ثانیه",
+                    "count": "60"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "سرد کردن",
+                "action_description": "سرد کردن",
+                "action_pic_url": "/files/exercise/images/1727524114963.png",
+                "sets": [
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "description": "گرم کردن:10 دقیقه حرکات نرمشی\nسرد کردن:5دقیقه کششی ایستا\nبین ست ها 45 تا 60 ثانیه و بین حرکات 1 دقیقه استراحت",
+        "day_number": 1
+      },
+      {
+        "id": 8718,
+        "data": [
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "گرم کردن",
+                "action_description": "گرم کردن",
+                "action_pic_url": "/files/exercise/images/1727524104398.png",
+                "sets": [
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "اسکوات دمبل",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727789946597.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "18"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "18"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "25"
+                  }
+                ]
+              },
+              {
+                "action_title": "حرکت جلو پا نشسته با کش روی صندلی",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727530401198.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "22"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "18"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "16"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "حرکت ددلیفت با دمبل دامنه نیمه",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727529871294.png",
+                "description": "با دمبل اجرا کنید",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "13"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "13"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "11"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "11"
+                  }
+                ]
+              },
+              {
+                "action_title": "هاگ اسکوات با هالتر",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727522265726.png",
+                "description": "با دمبل اجرا کنید",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "11"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "ترکیب لانگز معکوس تناوبی با نشر دایره ای",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727532007134.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "8"
+                  }
+                ]
+              },
+              {
+                "action_title": "پرش بلند به جلو و برگشت عقب گام کوتاه",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727594935620.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "لانگز از جلو تناوبی مورب با دمبل",
+                "action_description": "لانگز از جلو تناوبی مورب با دمبل",
+                "action_pic_url": "/files/exercise/images/1727523221219.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "18"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "15"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "11"
+                  }
+                ]
+              },
+              {
+                "action_title": "داخل پا خوابیده",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727529108247.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی تری ست",
+            "movement_list": [
+              {
+                "action_title": "پشت بازو دمبل جفت چکشی خوابیده",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727536668248.png",
+                "description": "6 تکرار ببر پشت سر و 6 تکرار بیار روی پیشانی",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  }
+                ]
+              },
+              {
+                "action_title": "پشت بازو دمبل جفت چکشی خوابیده",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727536668248.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  }
+                ]
+              },
+              {
+                "action_title": "دیپ بازو(زانوی صاف) با صندلی",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727528115874.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "18"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "18"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "پشت بازو تک دمبل از بالای سر چرخشی",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1726052353407.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "15"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  }
+                ]
+              },
+              {
+                "action_title": "شنا دایموند",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727526569505.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "شکم برف پاک کن زانوی خم",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727527141731.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "25"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "25"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              },
+              {
+                "action_title": "پلانک ساید ثابت",
+                "action_description": null,
+                "action_pic_url": null,
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "25"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "شکم خلبانی پا جمع با دمبل",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727790013838.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "25"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "حرکت کرانچ دور دنیا",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727529479140.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "سرد کردن",
+                "action_description": "سرد کردن",
+                "action_pic_url": "/files/exercise/images/1727524114963.png",
+                "sets": [
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "description": "گرم کردن:10 دقیقه حرکات نرمشی\nسرد کردن:5دقیقه کششی ایستا\nبین ست ها 45 تا 60 ثانیه و بین حرکات 1 دقیقه استراحت",
+        "day_number": 2
+      },
+      {
+        "id": 8719,
+        "data": [
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "گرم کردن",
+                "action_description": "گرم کردن",
+                "action_pic_url": "/files/exercise/images/1727524104398.png",
+                "sets": [
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی تری ست",
+            "movement_list": [
+              {
+                "action_title": "پرس سرشانه دمبل موازی ایستاده",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727595047403.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "15"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "15"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  }
+                ]
+              },
+              {
+                "action_title": "نشر از جلو دمبل چکشی تناوبی",
+                "action_description": "نشر از جلو دمبل چکشی تناوبی",
+                "action_pic_url": "/files/exercise/images/1727521210845.jpg",
+                "description": "دست مخلف در حالت انقباض باشه",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  }
+                ]
+              },
+              {
+                "action_title": "نشر از جلو دمبل جفت",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1726394928017.jpg",
+                "sets": [
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  },
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  },
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "سرشانه دمبل شش جهته",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727524360917.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "13"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "13"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "13"
+                  }
+                ]
+              },
+              {
+                "action_title": "نشر از جانب دمبل تک دست مورب ایستاده",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727790046599.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "نشر از جانب دمبل نشسته",
+                "action_description": "نشر از جانب دمبل نشسته",
+                "action_pic_url": "/files/exercise/images/1727521783794.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  }
+                ]
+              },
+              {
+                "action_title": "نشر خم خوابیده روی میز شیب دار مچ عکس",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1726390920718.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "نشر خم دمبل نشسته",
+                "action_description": "نشر خم دمبل نشسته",
+                "action_pic_url": "/files/exercise/images/1727520788055.jpg",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "8"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "ددلیفت رومانیایی جفت دمبل به همراه زیر بغل جفت دمبل خم **",
+                "action_description": null,
+                "action_pic_url": null,
+                "description": "دراپ ست بزن-3 ست بزن-سیستم تمرینی دراپ ست: به این شکل که شما هر ست را به3 تا 5 مینی ست تبدیل میکنید( که من براتون 5 مینی گذاشتم)<br />بین مینی ست ها هیچ استراحتی وجود ندارد<br />خب طریقه انجام مینی ست ها چجوریه: شما سنگینترین وزنه رو انتخاب میکنید(بر اساس 90 درصد توان شما) وزنه ای ک مثلا بتونید بین 4 تا 6 تکرار با اون بزنید بعد از اتمام 6 تکرار به وسیله یار کمکی یا خودتون بین 15 تا 20 درصد وزنه ها رو کم میکنید(خود به خود وزنه میشه بر اساس80 درصد توان شما) و دوباره شروع به انجام مینی ست دوم میکنید(هرتعداد تکرار تونستین بزنید(تقریبا تا مرز ناتوانی)-مثلا 8 تکرار) بعد از مینی ست دوم دوباره 20 درصد وزنه ها رو کم میکنید(میشه بر اساس70 درصد توان شما) مینی ست سوم رو سروع میکنید(هر تعداد تونستین بزنید مثلا 10الی 12 تکرار) بعد از مینی ست سوم 20 درصد وزنه هاکم(میشه بر اساس 60 درصد شما)دوباره هر تعداد که تونستین بزنید(مثلا بین12-14 تکرار)-بعدش 2 دقیقه استراحت و میرید سراغ ست دوم همینطور سوم که این ست ها هم مث ست اول به چنتا مینی ست تقسیم میشن",
+                "sets": [
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  },
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  },
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  },
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  },
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "پول آور دمبل جفت خوابیده روی زمین",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727536020439.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "12"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "10"
+                  }
+                ]
+              },
+              {
+                "action_title": "رنگادرو",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727528098289.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "13"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "13"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "13"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "طناب",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727526288243.png",
+                "description": "12 دقیقه با شدت 70 درصد ضربان قلب",
+                "sets": [
+                  {
+                    "type": "دقیقه",
+                    "count": "12"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "سیستم تمرینی سوپر ست",
+            "movement_list": [
+              {
+                "action_title": "حرکت کرانچ کشویی",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727529464082.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "25"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "25"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              },
+              {
+                "action_title": "جک پلانک",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727531844116.png",
+                "sets": [
+                  {
+                    "type": "ثانیه",
+                    "count": "40"
+                  },
+                  {
+                    "type": "ثانیه",
+                    "count": "40"
+                  },
+                  {
+                    "type": "ثانیه",
+                    "count": "40"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "زیر شکم قورباغه ای",
+                "action_description": "",
+                "action_pic_url": "/files/exercise/images/1727527952296.png",
+                "sets": [
+                  {
+                    "type": "تکرار",
+                    "count": "25"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  },
+                  {
+                    "type": "تکرار",
+                    "count": "20"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "exercise_system": "معمولی",
+            "movement_list": [
+              {
+                "action_title": "سرد کردن",
+                "action_description": "سرد کردن",
+                "action_pic_url": "/files/exercise/images/1727524114963.png",
+                "sets": [
+                  {
+                    "type": "ماکسیمم توان",
+                    "count": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "description": "گرم کردن10 دقیقه حرکات نرمشی\nسرد کردن:5دقیقه کششی ایستا\nبین ست ها 45 تا 60 ثانیه و بین حرکات 1 دقیقه استراحت",
+        "day_number": 3
+      }
+    ]
+  }
+}

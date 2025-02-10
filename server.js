@@ -104,6 +104,7 @@ async function launchBrowser() {
 // راه‌اندازی اولیه مرورگر
 launchBrowser();
 app.use(express.json());
+app.use("/", require("./routes"));
 app.post("/generate-pdf", async (req, res) => {
   try {
     const time = Date.now();
@@ -132,7 +133,7 @@ app.post("/generate-pdf", async (req, res) => {
     const renderTimeStart = Date.now();
     await fs.promises.writeFile(
       filePath,
-      ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
+      ejs.render(template, { body: req.body, numberToOrdinal: numberToOrdinal })
     );
     res.setHeader("RENDER-TIME", Date.now() - renderTimeStart);
 

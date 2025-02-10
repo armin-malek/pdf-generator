@@ -4,21 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= data.program.title %></title>
+  <title><%= body.program.title %></title>
   <link rel="stylesheet" href="./pddf-html/style.css">
 </head>
 
 <body>
+
+  <% if(body.couchName || body.program.title || body.couchLogo) { %>
   <div class="header">
     <div class="texts-head">
-      <p class="coach-name">دکتر پویا شوکتی</p>
-      <h1>برنامه تمرینی ماه اول</h1>
+      <p class="coach-name"><%= body.couchName %></p>
+      <h1><%= body.program.title %></h1>
     </div>
-    <img src="./pddf-html/sample-logo.png" alt="" class="logo">
+    <% if(typeof body.couchLogo != "undefined") { %>
+    <img src="<%= body.couchLogo %>" alt="" class="logo">
+    <% } %>
 
   </div>
+  <% } %>
 
-  <% data.program.days.forEach(function(day, index) { %>
+
+  <% body.program.days.forEach(function(day, index) { %>
   <div class="container" style="<%- index > 0 ? `page-break-before: always` : "" %>">
     <div class="day-title">برنامه روز <%= numberToOrdinal( index+1) %></div>
     <p class="day-description">توضیحات: <%= day.description || '-----' %><br>
