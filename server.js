@@ -72,7 +72,19 @@ async function launchBrowser() {
       "--password-store=basic",
       "--use-gl=swiftshader",
       "--use-mock-keychain",
+      "--disable-site-isolation-trials",
+      "--disable-gpu",
+      "--disable-software-rasterizer",
+      "--disable-translat",
+      "--process-per-site",
+      "--process-per-tab",
+      "--disable-features=site-per-process",
+      "--disable-background-timer-throttling",
+      "--disable-ipc-flooding-protection",
+      "--disable-features=IsolateOrigins,site-per-process",
+      "--disable-logging",
     ],
+    slowMo: 0,
   });
 
   const browser = await browserPromise;
