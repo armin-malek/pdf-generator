@@ -20,6 +20,7 @@ if (!fs.existsSync("./tmp")) {
 let browserPromise;
 let template;
 
+console.log("NODE_ENV", process.env.NODE_ENV);
 if (process.env.NODE_ENV == "PRODUCTION") {
   template = fs.readFileSync("./index.ejs").toString();
 }
@@ -75,14 +76,20 @@ app.post("/download-pdf", async (req, res) => {
       template = (await fs.promises.readFile("./index.ejs")).toString();
     }
 
+    const renderTimeStart = Date.now();
     fs.writeFileSync(
       filePath,
       ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
     );
+    res.setHeader("RENDER-TIME", Date.now() - renderTimeStart);
+
+    const naigationTimeStart = Date.now();
+
     await page.goto(`file://${filePath}`, { waitUntil: "networkidle2" });
     // await page.setContent(
     //   ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
     // );
+    res.setHeader("NAVIGATION-TIME", Date.now() - naigationTimeStart);
 
     await page.emulateMediaType("print");
     const pdfPath = path.join(__dirname, "/tmp/", `${uuidV4()}.pdf`);
