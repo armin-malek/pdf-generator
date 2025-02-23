@@ -5,7 +5,8 @@ const path = require("path");
 const fs = require("fs");
 const ejs = require("ejs");
 const { v4: uuidV4 } = require("uuid");
-const { requestBodySchema } = require("./schema");
+const { exerciseBodySchema } = require("./lib/exerciseSchema");
+const { dietSchema } = require("./lib/dietSchema");
 const { numberToOrdinal } = require("./lib");
 
 const NODE_ENV = process.env.NODE_ENV;
@@ -16,14 +17,215 @@ const PORT = parseInt(process.env.PORT) || 3000;
 if (!fs.existsSync("./tmp")) {
   fs.mkdirSync("./tmp");
 }
-
 let browserPromise;
-let template;
+let exerciseTemplate;
+let dietTemplate;
 
 console.log("NODE_ENV", process.env.NODE_ENV);
 if (process.env.NODE_ENV == "PRODUCTION") {
-  template = fs.readFileSync("./templates/index.ejs").toString();
+  exerciseTemplate = fs.readFileSync("./templates/exercise.ejs").toString();
+  dietTemplate = fs.readFileSync("./templates/diet.ejs").toString();
 }
+
+// راه‌اندازی اولیه مرورگر
+launchBrowser();
+app.use(express.json());
+// app.use("/", require("./routes"));
+app.post("/exercise-pdf", async (req, res) => {
+  try {
+    const time = Date.now();
+
+    const JSONValidationTimeStart = Date.now();
+
+    const validationResult = exerciseBodySchema.safeParse(req.body);
+
+    const uuid = uuidV4();
+
+    if (!validationResult.success) {
+      return res.status(400).json({
+        error: "اطلاعات نامعتبر است",
+        details: validationResult.error.errors,
+      });
+    }
+    res.setHeader("JsonValidation-TIME", Date.now() - JSONValidationTimeStart);
+
+    const browser = await browserPromise;
+
+    const page = await browser.newPage();
+    const htmlPath = path.join(__dirname, "tmp", `${uuid}.html`);
+
+    if (process.env.NODE_ENV != "PRODUCTION") {
+      exerciseTemplate = (
+        await fs.promises.readFile("./templates/exercise.ejs")
+      ).toString();
+    }
+
+    const renderTimeStart = Date.now();
+    await fs.promises.writeFile(
+      htmlPath,
+      ejs.render(exerciseTemplate, {
+        body: req.body,
+        numberToOrdinal: numberToOrdinal,
+      })
+    );
+    res.setHeader("RENDER-TIME", Date.now() - renderTimeStart);
+
+    const naigationTimeStart = Date.now();
+
+    // await page.goto(`file://${filePath}`, { waitUntil: "networkidle2" });
+    await page.goto(`file://${htmlPath}`, { waitUntil: "load" });
+    // await page.setContent(
+    //   ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
+    // );
+    res.setHeader("NAVIGATION-TIME", Date.now() - naigationTimeStart);
+
+    const PdfPrintTimeStart = Date.now();
+    await page.emulateMediaType("print");
+    const pdfPath = path.join(__dirname, "/tmp/", `${uuid}.pdf`);
+    const pdfBuffer = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      path: pdfPath,
+    });
+
+    res.setHeader("PdfPrint-TIME", Date.now() - PdfPrintTimeStart);
+
+    if (process.env.NODE_ENV == "PRODUCTION") {
+      await page.close();
+    }
+
+    // res.setHeader("Content-Disposition", 'attachment; filename="download.pdf"');
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Length", pdfBuffer.length);
+    res.setHeader("CPU-TIME", Date.now() - time);
+    res.status(200).sendFile(pdfPath, (err) => {
+      if (err) {
+        console.log(err);
+        res.sendStatus(500);
+      }
+      fs.unlink(pdfPath, (err) => {
+        // log any error
+        if (err) {
+          console.log(err);
+        }
+      });
+      fs.unlink(htmlPath, (err) => {
+        // log any error
+        if (err) {
+          console.log(err);
+        }
+      });
+    });
+
+    // fs.writeFileSync("./out.pdf", pdfBuffer);
+  } catch (error) {
+    console.error("Error generating PDF:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+app.post("/diet-pdf", async (req, res) => {
+  try {
+    const time = Date.now();
+
+    const JSONValidationTimeStart = Date.now();
+
+    const validationResult = dietSchema.safeParse(req.body);
+
+    const uuid = uuidV4();
+
+    if (!validationResult.success) {
+      return res.status(400).json({
+        error: "اطلاعات نامعتبر است",
+        details: validationResult.error.errors,
+      });
+    }
+    res.setHeader("JsonValidation-TIME", Date.now() - JSONValidationTimeStart);
+
+    const browser = await browserPromise;
+
+    const page = await browser.newPage();
+    const htmlPath = path.join(__dirname, "tmp", `${uuid}.html`);
+
+    if (process.env.NODE_ENV != "PRODUCTION") {
+      dietTemplate = (
+        await fs.promises.readFile("./templates/diet.ejs")
+      ).toString();
+    }
+
+    const renderTimeStart = Date.now();
+    await fs.promises.writeFile(
+      htmlPath,
+      ejs.render(dietTemplate, {
+        body: req.body,
+        numberToOrdinal: numberToOrdinal,
+      })
+    );
+    res.setHeader("RENDER-TIME", Date.now() - renderTimeStart);
+
+    const naigationTimeStart = Date.now();
+
+    await page.goto(`file://${htmlPath}`, { waitUntil: "load" });
+
+    res.setHeader("NAVIGATION-TIME", Date.now() - naigationTimeStart);
+
+    const PdfPrintTimeStart = Date.now();
+    await page.emulateMediaType("print");
+    const pdfPath = path.join(__dirname, "/tmp/", `${uuid}.pdf`);
+    const pdfBuffer = await page.pdf({
+      format: "A4",
+      printBackground: true,
+      path: pdfPath,
+    });
+
+    res.setHeader("PdfPrint-TIME", Date.now() - PdfPrintTimeStart);
+
+    if (process.env.NODE_ENV == "PRODUCTION") {
+      await page.close();
+    }
+
+    // res.setHeader("Content-Disposition", 'attachment; filename="download.pdf"');
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Length", pdfBuffer.length);
+    res.setHeader("CPU-TIME", Date.now() - time);
+    res.status(200).sendFile(pdfPath, (err) => {
+      if (err) {
+        console.log(err);
+        res.sendStatus(500);
+      }
+      fs.unlink(pdfPath, (err) => {
+        // log any error
+        if (err) {
+          console.log(err);
+        }
+      });
+      fs.unlink(htmlPath, (err) => {
+        // log any error
+        if (err) {
+          console.log(err);
+        }
+      });
+    });
+
+    // fs.writeFileSync("./out.pdf", pdfBuffer);
+  } catch (error) {
+    console.error("Error generating PDF:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.get("/health-check", async (req, res) => {
+  try {
+    const browser = await browserPromise;
+
+    res.send({ ok: true, connected: browser.connected });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
 
 // تابعی برای راه‌اندازی مرورگر و مدیریت کرش‌های احتمالی
 async function launchBrowser() {
@@ -100,103 +302,3 @@ async function launchBrowser() {
 
   return browser;
 }
-
-// راه‌اندازی اولیه مرورگر
-launchBrowser();
-app.use(express.json());
-app.use("/", require("./routes"));
-app.post("/exercise-pdf", async (req, res) => {
-  try {
-    const time = Date.now();
-
-    const JSONValidationTimeStart = Date.now();
-
-    const validationResult = requestBodySchema.safeParse(req.body);
-
-    if (!validationResult.success) {
-      return res.status(400).json({
-        error: "اطلاعات نامعتبر است",
-        details: validationResult.error.errors,
-      });
-    }
-    res.setHeader("JsonValidation-TIME", Date.now() - JSONValidationTimeStart);
-
-    const browser = await browserPromise;
-
-    const page = await browser.newPage();
-    const filePath = path.join(__dirname, "out.html");
-
-    if (process.env.NODE_ENV != "PRODUCTION") {
-      template = (
-        await fs.promises.readFile("./templates/index.ejs")
-      ).toString();
-    }
-
-    const renderTimeStart = Date.now();
-    await fs.promises.writeFile(
-      filePath,
-      ejs.render(template, { body: req.body, numberToOrdinal: numberToOrdinal })
-    );
-    res.setHeader("RENDER-TIME", Date.now() - renderTimeStart);
-
-    const naigationTimeStart = Date.now();
-
-    // await page.goto(`file://${filePath}`, { waitUntil: "networkidle2" });
-    await page.goto(`file://${filePath}`, { waitUntil: "load" });
-    // await page.setContent(
-    //   ejs.render(template, { ...req.body, numberToOrdinal: numberToOrdinal })
-    // );
-    res.setHeader("NAVIGATION-TIME", Date.now() - naigationTimeStart);
-
-    const PdfPrintTimeStart = Date.now();
-    await page.emulateMediaType("print");
-    const pdfPath = path.join(__dirname, "/tmp/", `${uuidV4()}.pdf`);
-    const pdfBuffer = await page.pdf({
-      format: "A4",
-      printBackground: true,
-      path: pdfPath,
-    });
-
-    res.setHeader("PdfPrint-TIME", Date.now() - PdfPrintTimeStart);
-
-    if (process.env.NODE_ENV == "PRODUCTION") {
-      await page.close();
-    }
-
-    // res.setHeader("Content-Disposition", 'attachment; filename="download.pdf"');
-    res.setHeader("Content-Type", "application/pdf");
-    res.setHeader("Content-Length", pdfBuffer.length);
-    res.setHeader("CPU-TIME", Date.now() - time);
-    res.status(200).sendFile(pdfPath, (err) => {
-      if (err) {
-        console.log(err);
-        res.sendStatus(500);
-      }
-      fs.unlink(pdfPath, (err) => {
-        // log any error
-        if (err) {
-          console.log(err);
-        }
-      });
-    });
-
-    // fs.writeFileSync("./out.pdf", pdfBuffer);
-  } catch (error) {
-    console.error("Error generating PDF:", error);
-    res.status(500).send("Internal Server Error", error);
-  }
-});
-
-app.get("/health-check", async (req, res) => {
-  try {
-    const browser = await browserPromise;
-
-    res.send({ ok: true, connected: browser.connected });
-  } catch (error) {
-    res.status(500).send(error);
-  }
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
