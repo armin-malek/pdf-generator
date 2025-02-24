@@ -14,6 +14,7 @@ const NODE_ENV = process.env.NODE_ENV;
 const app = express();
 const PORT = parseInt(process.env.PORT) || 3000;
 
+console.log("pup path", require("puppeteer").executablePath());
 if (fs.existsSync("./tmp")) {
   fs.rmSync("./tmp", { force: true, recursive: true });
 }
