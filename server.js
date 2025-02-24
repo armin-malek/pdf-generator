@@ -14,9 +14,11 @@ const NODE_ENV = process.env.NODE_ENV;
 const app = express();
 const PORT = parseInt(process.env.PORT) || 3000;
 
-if (!fs.existsSync("./tmp")) {
-  fs.mkdirSync("./tmp");
+if (fs.existsSync("./tmp")) {
+  fs.rmSync("./tmp", { force: true, recursive: true });
 }
+fs.mkdirSync("./tmp");
+
 let browserPromise;
 let exerciseTemplate;
 let dietTemplate;
