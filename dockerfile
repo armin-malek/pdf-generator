@@ -1,24 +1,14 @@
-FROM node:22
+FROM ghcr.io/puppeteer/puppeteer:latest 
 
-ENV \
-    # Configure default locale (important for chrome-headless-shell).
-    LANG=en_US.UTF-8 \
-    # UID of the non-root user 'pptruser'
-    PPTRUSER_UID=10042
 
-# Install latest chrome dev package and fonts to support major charsets (Chinese, Japanese, Arabic, Hebrew, Thai and a few others)
-# Note: this installs the necessary libs to make the bundled version of Chrome that Puppeteer
-# installs, work.
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-khmeros \
-    fonts-kacst fonts-freefont-ttf dbus dbus-x11
 
-RUN  apt-get update &&  apt-get install -y gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libnss3 lsb-release xdg-utils wget ca-certificates
+# Using Root to enable SYS_ADMIN capabilities (for running the browser in sandbox mode )
+USER root 
 
-# Add pptruser.
-RUN groupadd -r pptruser && useradd -u $PPTRUSER_UID -rm -g pptruser -G audio,video pptruser
 
-USER $PPTRUSER_UID
+
+
+
 
 # Setting up the work directory
 WORKDIR /pdf-gen
@@ -55,8 +45,17 @@ COPY . .
 # Installing dependencies
 RUN npm install
 
-RUN PUPPETEER_CACHE_DIR=/pdf-gen/.cache/puppeteer \
-  npx puppeteer browsers install chrome --install-deps
+# RUN PUPPETEER_CACHE_DIR=/pdf-gen/.cache/puppeteer \
+#   npx puppeteer browsers install chrome --install-deps
+
+
+# set env variable ( due to issue talked about here https://github.com/puppeteer/puppeteer/issues/11023#issuecomment-1776247197)
+
+ENV XDG_CONFIG_HOME=/tmp/.chromium
+ENV XDG_CACHE_HOME=/tmp/.chromium
+
+# Install browsers ( post-install scripts)
+RUN npx puppeteer browsers install
 
 # RUN npx @puppeteer/browsers install chrome@stable
 
