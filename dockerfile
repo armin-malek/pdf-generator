@@ -64,4 +64,4 @@ RUN PUPPETEER_CACHE_DIR=/pdf-gen/.cache/puppeteer \
 CMD [ "node", "server.js" ]
 
 # Exposing server port
-EXPOSE 3000# 
+EXPOSE 3000
