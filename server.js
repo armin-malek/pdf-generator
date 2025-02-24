@@ -242,7 +242,7 @@ async function launchBrowser() {
     // headless: true,
     executablePath:
       NODE_ENV == "PRODUCTION"
-        ? undefined
+        ? "/usr/bin/google-chrome" // undefined
         : "C:\\Users\\Armin\\AppData\\Local\\Chromium\\Application\\chrome.exe",
     defaultViewport: { width: 640, height: 480 },
     args: [
