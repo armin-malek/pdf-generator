@@ -2,7 +2,7 @@ FROM node:22
 
 ENV \
     # Configure default locale (important for chrome-headless-shell).
-    LANG=en_US.UTF-8 \
+    LANG=en_US.UTF-8
     # UID of the non-root user 'pptruser'
     # PPTRUSER_UID=10042
 
