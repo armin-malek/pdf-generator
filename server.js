@@ -232,6 +232,10 @@ app.listen(PORT, () => {
 // تابعی برای راه‌اندازی مرورگر و مدیریت کرش‌های احتمالی
 async function launchBrowser() {
   console.log("Launching browser...");
+  if (typeof browserPromise != "undefined") {
+    const browser = await browserPromise;
+    browser?.close();
+  }
   browserPromise = puppeteer.launch({
     headless: NODE_ENV == "PRODUCTION" ? true : false,
     // headless: true,
