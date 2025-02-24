@@ -34,7 +34,7 @@ ENV DBUS_SESSION_BUS_ADDRESS=autolaunch:
 #    && rm ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppeteer-latest.tgz
 
 # Install system dependencies as root.
-USER root
+# USER root
 # Overriding the cache directory to install the deps for the Chrome
 # version installed for pptruser. 
 
